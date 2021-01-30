@@ -1,11 +1,62 @@
 import React, {Fragment} from 'react'
+import styled from 'styled-components'
+import Gray from './Stars/Gray'
+import Hover from './Stars/Hover'
+import Selected from './Stars/Selected'
+
+const RatingContainer = styled.div`
+  text-align: center;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 3rem - 1rem 0;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+`
+
+const RatingBox = styled.div`
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+  position: relative;
+
+  input {
+    display: none
+  }
+
+  label {
+    cursor: pointer;
+    width: 3rem;
+    height: 3rem;
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Gray}");
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+  }
+
+  input:checked ~ label,
+  input:checked ~ label ~ label {
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Selected}");
+  }
+
+  input:not(:checked) ~ label:hover,
+  input:not(:checked) ~ label:hover ~ label {
+    background-image: url("data:image/svg+xml;charset=UTF-8,${Hover}");
+  }
+
+`
+
+const RatingTitle = styled.div`
+
+`
 
 const ReviewForm = (props) => {
   const ratingOptions = [5,4,3,2,1].map((score, index) => {
     return (
       <Fragment>
-        <input type="radio" value={score} name="rating" onChange={() => console.log('selected:', score) } id={`rating-${score}`}/>
-        <label></label>
+        <input type="radio" value={score} checked={props.review.score == score} name="rating" onChange={() => console.log('selected:', score) } id={`rating-${score}`}/>
+        <label onClick={props.setRating.bind(this, score)}></label>
       </Fragment>
     )
   })
@@ -20,12 +71,14 @@ const ReviewForm = (props) => {
           <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review Description"/>
         </div>
         <div className="field">
-          <div className="rating-container">
+          <RatingContainer>
             <div className="rating-title-text">
               Rate this Airline
             </div>
-            {ratingOptions}
-          </div>
+            <RatingBox>
+              {ratingOptions}
+            </RatingBox>
+          </RatingContainer>
         </div>
         <button type="submit">Submit Your Review</button>
       </form>
