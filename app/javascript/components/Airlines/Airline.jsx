@@ -24,6 +24,7 @@ const AirlineName = styled.div`
 const LinkWrapper = styled.div`
   margin: 30px 0 20px 0;
   height: 3rem;
+  min-width: 200px;
 
   a {
     color: #fff;
