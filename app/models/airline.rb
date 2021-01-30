@@ -1,3 +1,6 @@
+# frozen_string_literal: false
+
+# :nodoc:
 class Airline < ApplicationRecord
   has_many :reviews
 
