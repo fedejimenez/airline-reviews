@@ -1,5 +1,7 @@
+# frozen_string_literal: false
+
 Rails.application.routes.draw do
-  root 'page#index'
+  root 'pages#index'
 
   namespace :api do
     namespace :v1 do
