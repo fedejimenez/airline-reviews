@@ -10,7 +10,7 @@ const Home = styled.div`
   margin-rigt: auto;
 `
 const Header = styled.div`
-  padding: 100px 100px 10px 100px;
+  padding: 2rem 5rem 1rem 4rem;
   
   h1 {
     font-size: 3rem;
@@ -18,14 +18,17 @@ const Header = styled.div`
 `
 const Subheader = styled.div`
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  padding: 1rem;
 `
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 4fr));
   grid-gap: 1rem;
-  width: 100%;
-  padding: 1rem;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 0 1rem 0;
 `
 
 const Airlines = () => {
@@ -50,9 +53,9 @@ const Airlines = () => {
     <Home>
       <Header>
         <h1>Airline Reviews</h1>
-        <Subheader className="subeader">Honest airline reviews</Subheader>
+        <Subheader>Honest airline reviews</Subheader>
       </Header>
-      <Grid className="grid">
+      <Grid>
         {grid}
       </Grid>
     </Home>
