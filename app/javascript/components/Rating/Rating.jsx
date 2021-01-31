@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../stylesheets/Rating.scss'
+import '../../stylesheets/Rating.css'
 
 const Rating = (props) => {
   const score = (props.score / 5) * 100
