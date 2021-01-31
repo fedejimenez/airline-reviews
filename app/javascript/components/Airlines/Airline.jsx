@@ -7,9 +7,10 @@ const Card = styled.div`
   border: 1px solid #efefef;
   background: #fff;
   text-align: center;
-  `
+`
+
 const AirlineLogo = styled.div`
-  width: 3rem;
+  // width: 3rem;
   margin: 5px auto 5px auto;
 
   img {
@@ -25,15 +26,16 @@ const AirlineName = styled.div`
 const LinkWrapper = styled.div`
   margin: 30px 0 20px 0;
   height: 3rem;
-  min-width: 200px;
+  // min-width: 200px;
 
   a {
     color: #fff;
     background: #000;
     border-radius: 4px;
-    padding: 10px 50px;
+    padding: .7rem 2rem;
     border: 1px solid #000;
-    width: 100%;
+    display: inline-block;
+    width: 50%;
     text-decoration: none;
   }
 `
