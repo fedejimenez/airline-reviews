@@ -4,6 +4,12 @@ import Gray from './Stars/Gray'
 import Hover from './Stars/Hover'
 import Selected from './Stars/Selected'
 
+const Wrapper = styled.div`
+  background: #000;
+  height: 98vh;
+  padding: 4rem 1rem 0 1rem;
+`
+
 const RatingContainer = styled.div`
   text-align: center;
   border-radius: 4px;
@@ -57,20 +63,13 @@ const Field = styled.div`
     font-size: 1.1rem;
     margin: 0 0 1rem 0;
     padding: 12px;
-    width: 95%;
+    width: 100%;
   }
 
   textarea {
     min-height: 8rem;
     font-family: 'Arial';
   }
-`
-
-const Wrapper = styled.div`
-  background: #000;
-  padding: 1rem;
-  height: 100vh;
-  padding-top: 5rem;
 `
 
 const SubmitBtn = styled.button`
@@ -91,7 +90,8 @@ const SubmitBtn = styled.button`
 `
 
 const Headline = styled.div`
-  padding: 1rem;
+  padding: 1.5rem;
+  padding-left: 0;
   font-size: 1.5rem;
   font-weight: bold;
   color: #fff;
