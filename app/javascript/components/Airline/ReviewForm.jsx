@@ -8,7 +8,7 @@ const RatingContainer = styled.div`
   text-align: center;
   border-radius: 4px;
   font-size: 1rem;
-  padding: 3rem 0 10px 0;
+  padding: 2rem 0 10px 0;
   border: 1px solid #e6e6e6;
   background: #fff;
 `
@@ -45,28 +45,24 @@ const RatingBox = styled.div`
   input:not(:checked) ~ label:hover ~ label {
     background-image: url("data:image/svg+xml;charset=UTF-8,${Hover}");
   }
-
 `
 
 const Field = styled.div`
   border-radius: 4px;
 
-  input {
+  input, textarea {
     min-height: 3rem;
     border-radius: 4px;
     border: 1px solid #e6e6e6;
+    font-size: 1.1rem;
     margin: 0 0 1rem 0;
     padding: 12px;
     width: 95%;
   }
 
-  textarea{
-    width: 100%;
-    min-height: 4rem;
-    border-radius: 4px;
-    border: 1px solid #e6e6e6;
-    margin: 12px 0;
-    padding: 12px;
+  textarea {
+    min-height: 8rem;
+    font-family: 'Arial';
   }
 `
 
@@ -79,14 +75,13 @@ const Wrapper = styled.div`
 
 const SubmitBtn = styled.button`
   color: #fff;
-  background: #333;
+  background: #40b03d;
   border-radius: 4px;
   padding: 1rem;
   margin-top: 1rem;
   font-size: 1.2rem;
   cursor: pointer;
   transition: ease-in-out 0.1s;
-  border: 1px solid #fff;
   width: 100%;
   &:hover {
     background: #fff;
@@ -103,8 +98,7 @@ const Headline = styled.div`
 `
 
 const RatingTitle = styled.div`
-  font-size: 20px;
-  padding-bottom: .5rem;
+  font-size: 1.5rem;
   font-weight: bold;
 `
 
@@ -125,7 +119,7 @@ const ReviewForm = (props) => {
           <input onChange={props.handleChange} value={props.review.title} type="text" name="title" placeholder="Review Title"/>
         </Field>
         <Field>
-          <input onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review Description"/>
+          <textarea onChange={props.handleChange} value={props.review.description} type="text" name="description" placeholder="Review Description"></textarea>/>
         </Field>
         <Field>
           <RatingContainer>

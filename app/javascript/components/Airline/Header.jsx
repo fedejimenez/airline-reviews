@@ -15,17 +15,15 @@ const Wrapper = styled.div`
   }
 `
 const TotalReviews = styled.div`
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding: 10px 0;
-
 `
 
 const TotalOutOf = styled.div`
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bold;
   padding: 10px 0;
 `
-
 
 const Header = (props) => {
   const {name, image_url, avg_score} = props.attributes
@@ -38,9 +36,9 @@ const Header = (props) => {
         {name}
       </h1>
       <div>
-        <TotalReviews>{total} User Reviews</TotalReviews>
+        <TotalReviews>{total} Reviews</TotalReviews>
         <div className="starRating"></div>
-        <TotalOutOf>{avg_score} out of 5</TotalOutOf>
+        <TotalOutOf>{avg_score} out of 5 stars</TotalOutOf>
       </div>
     </Wrapper>
   )
