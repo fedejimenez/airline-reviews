@@ -40,9 +40,10 @@ jobs:
     
     - name: Rubocop
       run: |
-        gem install rubocop -v $(grep rubocop Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+")
-        gem install rubocop-performance -v $(grep rubocop-performance Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+")
-        gem install rubocop-rails -v $(grep rubocop-rails Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+")
+        gem install rubocop
+        gem install rubocop-performance
+        gem install rubocop-rails
+        gem install rubocop-rspec
         rubocop
 
     - name: Run Tests
