@@ -34,8 +34,8 @@ jobs:
         run: |
           gem install bundler
           bundle install --jobs 4 --retry 3
-      - name: 
-        env: Setup Database
+      - name: Setup Database
+        env:
           DATABASE_URL: postgres://postgres:@localhost:5432/airline_reviews_test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
