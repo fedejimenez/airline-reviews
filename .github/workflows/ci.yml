@@ -39,7 +39,11 @@ jobs:
         bin/rails db:prepare
     
     - name: Rubocop
-      run: rubocop
+      run: |
+        gem install rubocop -v $(grep rubocop Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+") --no-document
+        gem install rubocop-performance -v $(grep rubocop-performance Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+") --no-document
+        gem install rubocop-rails -v $(grep rubocop-rails Gemfile.lock | head -n 1 | grep -Po "\d+\.\d+\.\d+") --no-document
+        rubocop
 
     - name: Run Tests
       env:
