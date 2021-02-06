@@ -28,14 +28,24 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      - name: Build and tun tests
-        env:
+      - name: Install dependent libraries
+        run: sudo apt-get install libpq-dev
+      - name: Bundle install
+        run: |
+          gem install bundler
+          bundle install --jobs 4 --retry 3
+      - name: 
+        env: Setup Database
           DATABASE_URL: postgres://postgres:@localhost:5432/airline_reviews_test
           REDIS_URL: redis://localhost:6379/0
           RAILS_ENV: test
         run: |
-          sudo apt-get -yqq install libpq-dev
-          gem install bundler
-          bundle install --jobs 4 --retry 3
+          cp config/database.yml.github-actions config/database.yml
           bundle exec rails db:prepare
           bundle exec rails test
+      - name: Run tests
+        run: COVERAGE=true bundle exec rspec  --require rails_helper
+        env:
+          RAILS_ENV: test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
